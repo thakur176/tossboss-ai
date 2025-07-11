@@ -6,6 +6,16 @@
   <title>TossBoss AI</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2X2JJRTMQX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2X2JJRTMQX');
+</script>
+
 </head>
 <body>
   <div class="app">
@@ -66,9 +76,10 @@
       </section>
     </main>
 
-    <audio id="sound-toss" src="sound/sound-toss.mp3" preload="auto"></audio>
-    <audio id="sound-reset" src="sound/sound-reset.mp3" preload="auto"></audio>
-    <audio id="sound-fireworks" src="sound/sound-fireworks.mp3" preload="auto"></audio>
+    <audio id="sound-toss" src="https://cdn.pixabay.com/audio/2023/03/30/audio_c014c5fccc.mp3" preload="auto"></audio>
+    <audio id="sound-reset" src="https://cdn.pixabay.com/audio/2022/01/20/audio_dff99d2233.mp3" preload="auto"></audio>
+    <audio id="sound-fireworks" src="https://cdn.pixabay.com/audio/2022/03/31/audio_5b4a3025a4.mp3" preload="auto"></audio>
+
 
   </div>
 
@@ -87,35 +98,44 @@
 
     const slogans = [
       "Don't be troubled! Let TossBoss AI decide the best for you — 🤩free.",
-      "Let AI pick what your mind can’t — smart and effortless!",
-      "Toss your choices, Boss the results.",
-      "Smart decisions. Fast matches. No stress.",
-      "Let TossBoss AI spark your next move!",
+      "🎯 Plan smart, play smart with TossBoss AI!",
+      "🤖 Let the bot decide your best match!",
+      "✨ Instant outfit, study or food planner!",
+      "⚡ Boost decisions with AI toss!",
       "Decisions don't need drama — just TossBoss AI.",
-      "Shuffle. Match. Enjoy. Repeat.",
+      "🎲 Why think? Just TossBoss it!",
       "AI-powered matchmaker for work & play.",
       "Toss it like a boss with TossBoss AI.",
-      "Turn confusion into clarity with a single toss."
+      "Turn confusion into clarity with a single toss.",
+      "🧠 AI-powered choice maker for fun & tasks!",
+      "👕 Dress, Eat, Rank - all decided smartly!",
+      "🪄 Magic toss for perfect matchups!",
+      "🎉 Party planning? Toss it here!",
+      "📚 Study plan? Toss your subjects!"
     ];
 
-    let sloganIndex = 0;
-    const sloganElement = document.getElementById("slogan");
-    function showSlogan() {
-      sloganElement.innerHTML = "";
-      let text = slogans[sloganIndex];
-      let charIndex = 0;
-      function typeSlogan() {
-        if (charIndex < text.length) {
-          sloganElement.innerHTML += text[charIndex];
-          charIndex++;
-          setTimeout(typeSlogan, 70);
+    document.addEventListener("DOMContentLoaded", function () {
+      let sloganIndex = 0;
+      const sloganElement = document.getElementById("slogan");
+
+      function showSlogan() {
+        sloganElement.innerHTML = "";
+        let text = slogans[sloganIndex];
+        let charIndex = 0;
+        function typeSlogan() {
+          if (charIndex < text.length) {
+            sloganElement.innerHTML += text[charIndex];
+            charIndex++;
+            setTimeout(typeSlogan, 70);
+          }
         }
+        typeSlogan();
+        sloganIndex = (sloganIndex + 1) % slogans.length;
       }
-      typeSlogan();
-      sloganIndex = (sloganIndex + 1) % slogans.length;
-    }
-    showSlogan();
-    setInterval(showSlogan, 240000); // every 4 minutes
+
+      showSlogan();
+      setInterval(showSlogan, 240000); // every 4 minutes
+    });
   </script>
 
   <script src="script.js"></script>
