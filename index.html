@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TossBoss AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1 class="animated-title">🤖 <span id="title-text"></span></h1>
+      <p id="slogan" class="tagline"></p>
+    </header>
+
+      <div class="preset-buttons">
+        <button onclick="loadPreset('play')">🎮 Play Order</button>
+        <button onclick="loadPreset('rank')">🏆 Rank Randomizer</button>
+        <button onclick="loadPreset('dress')">👗 Dress Chooser</button>
+        <button onclick="loadPreset('study')">📚 Study Topics</button>
+        <button onclick="loadPreset('meal')">🍱 Meal Planner</button>
+      </div>
+
+    <main>
+      <div class="input-container">
+        <textarea id="names" placeholder="Enter names or items here..."></textarea>
+        <textarea id="items" placeholder="Enter tasks, numbers, products, etc..."></textarea>
+      </div>
+
+
+      <div class="btns">
+        <button id="toss-btn">🎲 Toss Now</button>
+        <button id="reset-btn">🔁 Reset</button>
+      </div>
+
+      <div id="result-section">
+        <div id="result" class="result-box">
+         <div class="thinking">🤖 TossBoss AI is ready!</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: 1rem;">
+        <button id="downloadImageBtn">📸 Share Result (Download Image)</button>
+      
+      </div>
+        <div style="text-align:center; margin-top: 0.5rem;">
+        <button id="whatsappShareBtn">🟢 Share on WhatsApp</button>
+      </div>
+
+      <section class="how-to-use">
+        <h2>🧠 How to Use TossBoss AI</h2>
+        <p>Enter two lists: one in each column. TossBoss AI will randomly match the items across the columns to help you decide or play in a smarter way — whether you're planning meals, deciding study subjects, picking ranks, or just having fun!</p>
+      </section>
+
+      <section class="use-cases">
+        <h2>📌 Use Cases</h2>
+        <ol>
+          <li>🎮 Decide player ranks for games</li>
+          <li>👗 Help girls choose outfits</li>
+          <li>📅 Decide what to play on which days</li>
+          <li>🍲 Plan meals for the week</li>
+          <li>📚 Randomly assign study subjects per day</li>
+          <li>🎉 Add fun to decision-making during parties</li>
+        </ol>
+      </section>
+    </main>
+
+    <audio id="sound-toss" src="sound/sound-toss.mp3" preload="auto"></audio>
+    <audio id="sound-reset" src="sound/sound-reset.mp3" preload="auto"></audio>
+    <audio id="sound-fireworks" src="sound/sound-fireworks.mp3" preload="auto"></audio>
+
+  </div>
+
+  <script>
+    const title = "TOSSBOSS AI";
+    const titleElement = document.getElementById("title-text");
+    let titleIndex = 0;
+    function typeTitle() {
+      if (titleIndex < title.length) {
+        titleElement.innerHTML += title[titleIndex];
+        titleIndex++;
+        setTimeout(typeTitle, 150);
+      }
+    }
+    typeTitle();
+
+    const slogans = [
+      "Don't be troubled! Let TossBoss AI decide the best for you — 🤩free.",
+      "Let AI pick what your mind can’t — smart and effortless!",
+      "Toss your choices, Boss the results.",
+      "Smart decisions. Fast matches. No stress.",
+      "Let TossBoss AI spark your next move!",
+      "Decisions don't need drama — just TossBoss AI.",
+      "Shuffle. Match. Enjoy. Repeat.",
+      "AI-powered matchmaker for work & play.",
+      "Toss it like a boss with TossBoss AI.",
+      "Turn confusion into clarity with a single toss."
+    ];
+
+    let sloganIndex = 0;
+    const sloganElement = document.getElementById("slogan");
+    function showSlogan() {
+      sloganElement.innerHTML = "";
+      let text = slogans[sloganIndex];
+      let charIndex = 0;
+      function typeSlogan() {
+        if (charIndex < text.length) {
+          sloganElement.innerHTML += text[charIndex];
+          charIndex++;
+          setTimeout(typeSlogan, 70);
+        }
+      }
+      typeSlogan();
+      sloganIndex = (sloganIndex + 1) % slogans.length;
+    }
+    showSlogan();
+    setInterval(showSlogan, 240000); // every 4 minutes
+  </script>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</body>
+</html>
