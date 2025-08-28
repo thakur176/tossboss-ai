@@ -40,6 +40,7 @@
 ---
 
 ## 👨‍💻 Author
-**Nitesh Thakur**  
+**Nitesh**  
 - [LinkedIn](www.linkedin.com/in/nitesh-thakur-6818a6346)  
 - [GitHub](https://github.com/thakur176)  
+
